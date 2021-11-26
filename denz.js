@@ -994,7 +994,7 @@ reply('http://youtube.com/dcodedenpa')
 ╾ _Mode : ${publik ? 'Public' : 'Self'}_
 ╾ _Total Hit : ${cmhit.length}_
 ╾ _Command : ${prefix + command}_
-╾ _Baileys Ver : ${mek.quoted.isBaileys}_
+╾ _Baileys Ver : 3.5.3_
 ╾ _Pm2 Ver : Not Detected_
 
 ❏「 \`\`\`INFO BOT\`\`\` 」
@@ -3592,7 +3592,18 @@ teks += `❏ *Creator:* ${commandsDB[i].creator}\n\n`
 }
 reply(teks)
 break
-default:break
+default:
+			if (isCmd) {
+                        petik = '```'
+                        lah = `┌─❑ 「 NOT FOUND 」
+│◪ Nama : ${pushname}
+│◪ Nomer : @${sender.split("@")[0]}
+│◪ Command : ${prefix}${command}
+│◪ Pesan : Command ${command} tidak terdaftar pada menu!
+└────⸨ SAGIRI BOT ⸩────❑`
+sendButLocation(from, `${lah}`, `${petik}ERROR : COMMAND NOT FOUND${petik}`, {jpegThumbnail:emror}, [{buttonId:`${prefix}owner`,buttonText:{displayText:'OWNER'},type:1},{buttonId:`${prefix}menu`,buttonText:{displayText:'MENU'},type:1}], {contextInfo: { mentionedJid: [sender]}})
+				  }
+			break
 		}
 		if (isTTT && isPlayer2){
 if (budy.startsWith('Y')){
